@@ -21,8 +21,8 @@ class Event(Base):
     created_id: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     user: Mapped["User"] = relationship(back_populates="events")
-    comments: Mapped[List["Comment"]] = relationship(back_populates="events", cascade="all, delete-orphan")
-    reservations: Mapped[List["Reservation"]] = relationship(back_populates="events", cascade="all, delete-orphan")
+    comments: Mapped[List["Comment"]] = relationship(back_populates="event", cascade="all, delete-orphan")
+    reservations: Mapped[List["Reservation"]] = relationship(back_populates="event", cascade="all, delete-orphan")
 
 
 
